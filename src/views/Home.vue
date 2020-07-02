@@ -4,8 +4,8 @@
     <Header :msg ="msg"/>
     <b-container class="bv-example-row">
       <b-row>
-        <b-col sm="8"><Statistics></Statistics></b-col>
         <b-col sm="4"><Announcements></Announcements></b-col>
+        <b-col sm="8"><Statistics></Statistics></b-col>
       </b-row>
     </b-container>    
   </div>
@@ -13,6 +13,15 @@
 <script>
 // @ is an alias to /src
 //import HelloWorld from '@/components/HelloWorld.vue'
+import Vue from 'vue'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+// Install BootstrapVue
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 import Header from '@/components/Header.vue'
 import Statistics from '@/components/Statistics.vue'
 import Announcements from '@/components/Announcements.vue'
