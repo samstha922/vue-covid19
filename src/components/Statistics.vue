@@ -1,9 +1,7 @@
 <template>
     <div id="stats">
         <h1>Statistics </h1>
-        {{states}} 
-        {{positives}}
-        <canvas id="planet-chart"></canvas>
+        <canvas ref="canvas" width="900" height="400"></canvas>
     </div>
 </template>
 <script>
@@ -12,38 +10,32 @@ import axios from 'axios'
 	export default {
         extends: Line,
         name:'Statistics',
-        props: ['chartdata', 'options'],
         data() {
             return{
                     states : [],
                     positives : []
 
             }
-        },	
+        },
         mounted () {
-           // console.log('canvas'+this.chartdata)
             axios
             .get('https://covidtracking.com/api/states')
             .then((response) => { response.data.forEach(eachState => {
-                                    this.states.push(eachState.states) 
+                                    this.states.push(eachState.state) 
                                     this.positives.push(eachState.positive) 
                                 })
-                })
-            // .then((jsonData) =>{
-            //     jsonData.forEach(eachState => {
-            //         this.states.push(eachState.state)  
-            //     })
-            // })
-        }
-        // methods:{
-        //     createChart(chartId, chartData) {
-        //         const ctx = document.getElementById(chartId);
-        //         const myChart = new Chart(ctx, {
-        //             type: chartData.type,
-        //             data: chartData.states,
-        //             options: chartData.options
-        //         })
-        //     }
-        // }
+            })
+
+            this.renderChart({
+            labels: this.states,
+            datasets: [
+                {
+                label: 'States',
+                backgroundColor: '#f87979',
+                data: this.positives
+                }
+            ]
+            }, {responsive: true, maintainAspectRatio: true})
+        } 
     }
 </script>
