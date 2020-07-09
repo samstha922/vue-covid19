@@ -13,7 +13,8 @@ import axios from 'axios'
         data() {
             return{
                     states : [],
-                    positives : []
+                    positives : [],
+                    flag: false
 
             }
         },
@@ -23,20 +24,18 @@ import axios from 'axios'
             .then((response) => { response.data.forEach(eachState => {
                                     this.states.push(eachState.state) 
                                     this.positives.push(eachState.positive) 
-
                                 })
+                this.renderChart({
+                labels: this.states,
+                datasets: [
+                    {
+                    label: 'States',
+                    backgroundColor: '#f87979',
+                    data: this.positives
+                    }
+                ]
+                }, {responsive: true, maintainAspectRatio: true})
             })
-
-            this.renderChart({
-            labels: this.states,
-            datasets: [
-                {
-                label: 'States',
-                backgroundColor: '#f87979',
-                data: this.positives
-                }
-            ]
-            }, {responsive: true, maintainAspectRatio: true})
         } 
     }
 </script>

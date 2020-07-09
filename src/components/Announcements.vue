@@ -2,7 +2,7 @@
     <div id="announcements">
         <p>Announcements</p>
          <b-table responsive  :sort-by.sync="sortBy"
-      :sort-desc.sync="sortDesc" sticky-header="stickyHeader" :items="items" :fields="fields"></b-table>
+      :sort-desc.sync="sortDesc" sticky-header="stickyHeader" :items="items" :fields="fields" :class="rowClass"></b-table>
     </div>
 </template>
 <script>
@@ -29,7 +29,7 @@ import axios from 'axios'
             axios
             .get('https://covidtracking.com/api/states')
             .then((response) => { response.data.forEach(res => {
-                                    this.items.push({states: res.state, positives: res.positive})
+                                    this.items.push({states : res.state, positives: res.positive})
                                 })
             }) 
         },
