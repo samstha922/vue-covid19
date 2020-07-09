@@ -23,6 +23,7 @@ import axios from 'axios'
             .then((response) => { response.data.forEach(eachState => {
                                     this.states.push(eachState.state) 
                                     this.positives.push(eachState.positive) 
+
                                 })
             })
 
