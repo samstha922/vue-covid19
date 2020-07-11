@@ -25,16 +25,16 @@ import axios from 'axios'
                                     this.states.push(eachState.state) 
                                     this.positives.push(eachState.positive) 
                                 })
-                this.renderChart({
-                labels: this.states,
-                datasets: [
-                    {
-                    label: 'States',
-                    backgroundColor: '#f87979',
-                    data: this.positives
-                    }
-                ]
-                }, {responsive: true, maintainAspectRatio: true})
+            this.renderChart({
+            labels: this.states,
+            datasets: [
+                {
+                label: 'States',
+                backgroundColor: '#f87979',
+                data: this.positives
+                }
+            ]
+            }, {responsive: true, maintainAspectRatio: true})
             })
         } 
     }

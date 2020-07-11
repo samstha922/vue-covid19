@@ -1,3 +1,4 @@
+// All the template have to be looked into
 <template>
   <div class="home">
     <h1>Covid19 Tracker</h1>
