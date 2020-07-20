@@ -4,7 +4,10 @@
             <b-table responsive  :sort-by.sync="sortBy"
             :sort-desc.sync="sortDesc" sticky-header="stickyHeader" :items="items" :fields="fields" :class="rowClass">
                 <template v-slot:cell(states)="data">
-                    <a :href="`#${data.value.toLowerCase()}`">{{ data.value }}</a>
+                    <router-link :to="`/states/${data.value}`">
+                        {{data.value}}
+                    </router-link>
+                    <!-- <a :href="`#${data.value.toLowerCase()}`">{{ data.value }}</a> -->
                 </template>
       </b-table>
     </div>
@@ -17,7 +20,7 @@ import axios from 'axios'
             return{
                 sortBy: 'states',
                 sortDesc: false,
-                fields: [{key:'states', label:'States', sortable: true},{key:'positives', sortable: true}],     
+                fields: [{key:'states', label:'State', sortable: true},{key:'positives', label:'Positive', sortable: true}],     
 
                 items:[
                     {
