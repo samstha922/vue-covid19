@@ -1,20 +1,23 @@
 <template>
     <div id="announcements">
-        <p>Announcements</p>
-         <b-table responsive  :sort-by.sync="sortBy"
-      :sort-desc.sync="sortDesc" sticky-header="stickyHeader" :items="items" :fields="fields" :class="rowClass"></b-table>
+        <h1>Announcements </h1>
+            <b-table responsive  :sort-by.sync="sortBy"
+            :sort-desc.sync="sortDesc" sticky-header="stickyHeader" :items="items" :fields="fields" :class="rowClass">
+                <template v-slot:cell(states)="data">
+                    <a :href="`#${data.value.toLowerCase()}`">{{ data.value }}</a>
+                </template>
+      </b-table>
     </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from 'axios'   
 	export default{
         name:'Announcements',
         data() {
             return{
                 sortBy: 'states',
                 sortDesc: false,
-                fields: [{key:'states', sortable: true},{key:'positives', sortable: true}],     
-               
+                fields: [{key:'states', label:'States', sortable: true},{key:'positives', sortable: true}],     
 
                 items:[
                     {
@@ -38,7 +41,6 @@ import axios from 'axios'
                 if (!item || type !== 'row') return
                 if (item.positives == '0') return 'table-success'
             }
-
         }		
 		
 	}

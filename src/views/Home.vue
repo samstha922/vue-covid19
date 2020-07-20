@@ -5,12 +5,16 @@
     <Header :msg ="msg"/>
     <b-container class="bv-example-row">
       <b-row>
-        <b-col sm="4"><Announcements></Announcements></b-col>
-        <b-col sm="8"><Statistics></Statistics></b-col>
+        <b-col sm="12"><Statistics></Statistics></b-col>
       </b-row>
-    </b-container>    
+      <hr>
+      <b-row>
+        <b-col sm="12"><Announcements></Announcements></b-col>
+      </b-row>
+    </b-container>  
   </div>
 </template>
+
 <script>
 // @ is an alias to /src
 //import HelloWorld from '@/components/HelloWorld.vue'
@@ -22,7 +26,6 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-
 import Header from '@/components/Header.vue'
 import Statistics from '@/components/Statistics.vue'
 import Announcements from '@/components/Announcements.vue'
