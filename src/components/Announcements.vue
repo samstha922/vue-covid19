@@ -21,11 +21,11 @@ import axios from 'axios'
                 sortBy: 'states',
                 sortDesc: false,
                 fields: [{key:'states', label:'State', sortable: true},{key:'positives', label:'Positive', sortable: true}],     
-
+                currency: '',
                 items:[
                     {
-                        states:'',
-                        positives:''
+                        // states:'',
+                        // positives:''
                     }
                 ]
                 
@@ -37,14 +37,12 @@ import axios from 'axios'
             .then((response) => { response.data.forEach(res => {
                                     this.items.push({states : res.state, positives: res.positive})
                                 })
-            }) 
-        },
-        methods:{
-            rowClass(item, type){
-                if (!item || type !== 'row') return
-                if (item.positives == '0') return 'table-success'
-            }
-        }		
-		
+            })
+            //.then(response => { this.responses = response.data}) 
+
+            // axios
+            // .get('https://query1.finance.yahoo.com/v8/finance/chart/TLS.AX?region=AU')
+            // .then(console.log('saf'))	
+        }	
 	}
 </script>
