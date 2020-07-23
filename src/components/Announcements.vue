@@ -32,21 +32,21 @@ import axios from 'axios'
             }
         },	
         mounted(){
-            // axios
-            // .get('https://covidtracking.com/api/states')
-            // .then((response) => { response.data.forEach(res => {
-            //                         this.items.push({states : res.state, positives: res.positive})
-            //                     })
-            // })
-            //.then(response => { this.responses = response.data}) 
+            axios
+            .get('https://covidtracking.com/api/states')
+            .then((response) => { response.data.forEach(res => {
+                                    this.items.push({states : res.state, positives: res.positive})
+                                })
+            })
+            .then(response => { this.responses = response.data}) 
 
 
             // axios
             // .get('https://query1.finance.yahoo.com/v8/finance/chart/TLS.AX?region=AU')
             // .then(console.log('saf'))
 
-            axios.get('https://query1.finance.yahoo.com/v8/finance/chart/TLS.AX?region=AU')
-            .then((response)=>{console.log(response.data);})	
+            // axios.get('https://query1.finance.yahoo.com/v8/finance/chart/TLS.AX?region=AU')
+            // .then((response)=>{console.log(response.data);})	
         }	
 	}
 </script>
