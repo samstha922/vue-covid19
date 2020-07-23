@@ -38,6 +38,7 @@ import axios from 'axios'
                                     this.items.push({states : res.state, positives: res.positive})
                                 })
             })
+            //checking the response data
             //.then(response => { this.responses = response.data}) 
 
 
