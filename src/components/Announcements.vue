@@ -38,7 +38,9 @@ import axios from 'axios'
                                     this.items.push({states : res.state, positives: res.positive})
                                 })
             })
-            //checking the response for data which apparently isn't coming in 
+
+            
+            //checking the response for data which apparently isn't coming in right now
             //.then(response => { this.responses = response.data}) 
 
 
